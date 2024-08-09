@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /
+
+# Send requests for frontend routes to index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
