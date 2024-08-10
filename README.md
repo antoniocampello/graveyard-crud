@@ -42,7 +42,8 @@
 ## Todo List 📌
 
 - Priority (**1**)
-  - [ x ] Create migrations.
+  - [ ] Create migrations;
+  - [ ] Add application screenshots.
 
 ## Contributing 🛠️
 
