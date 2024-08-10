@@ -18,15 +18,16 @@
 
 ## Authors 👥
 
-- [**@dantsec**](https://www.github.com/dantsec) (back-end)
+- [**@dantsec**](https://www.github.com/dantsec) (back-end and partially front-end)
 - [**@antoniocampello**](https://www.github.com/antoniocampello) (front-end)
 
 ## Tech Stack 🧑‍💻
 
 - This project was developed with the following technologies:
   - [**PHP**](https://www.php.net/) (Backend Core)
-  - [**jQuery**](https://jquery.com/) (Framework)
   - [**HTML / CSS / JS**](https://developer.mozilla.org/en-US/docs/Web) (Frontend Core)
+  - [**jQuery**](https://jquery.com/) (Framework)
+  - [**DataTables**](https://datatables.net/) (Framework)
 
 ## Documents 📂
 
@@ -37,7 +38,7 @@
 
 - Turn **on** your **apache server with mysql**;
 - Copy this project to **htdocs**;
-- Execute queries from **backend/database/graveyard.sql** and be happy!
+- Execute queries from **backend/database/graveyard.sql into phpmyadmin** and be happy!
 
 ## Todo List 📌
 

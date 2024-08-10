@@ -41,3 +41,6 @@ VALUES
 -- @@ Consulting
 
 SELECT * FROM people;
+
+-- @@ Reverting Actions
+-- DROP DATABASE graveyard;
