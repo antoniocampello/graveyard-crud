@@ -1,0 +1,15 @@
+meta {
+  name: Get Single Person
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{url}}/people/{{id}}
+  body: none
+  auth: none
+}
+
+vars:pre-request {
+  id: 1
+}

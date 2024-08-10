@@ -1,0 +1,15 @@
+meta {
+  name: Delete Person
+  type: http
+  seq: 6
+}
+
+delete {
+  url: {{url}}/people/{{id}}
+  body: none
+  auth: none
+}
+
+vars:pre-request {
+  id: 10
+}

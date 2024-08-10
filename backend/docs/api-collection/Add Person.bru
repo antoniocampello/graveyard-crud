@@ -1,0 +1,22 @@
+meta {
+  name: Add Person
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{url}}/people
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "John Doe",
+    "date_of_birth": "1940-07-15",
+    "date_of_death": "2023-08-12",
+    "gender": "Male",
+    "nationality": "Brazilian",
+    "marital_status": "Widowed"
+  }
+}
