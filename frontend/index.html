@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.1.3/css/dataTables.dataTables.css">
         <title>Graveyard @ CRUD</title>
     </head>
     <body>
@@ -22,10 +23,46 @@
                 <input type="text" name="search" id="search" placeholder="Search...">
 
                 <!-- Link to modal | Create -->
-                <a href="#">Add record</a>
+                <button href="#" id="btn-add">Add record</button>
+            </section>
+
+            <section class="dataTable">
+                <table id="dataTable" class="display" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Date of Birth</th>
+                            <th>Date of Death</th>
+                            <th>Gender</th>
+                            <th>Nationality</th>
+                            <th>Marital Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Name</th>
+                            <th>Date of Birth</th>
+                            <th>Date of Death</th>
+                            <th>Gender</th>
+                            <th>Nationality</th>
+                            <th>Marital Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
+                </table>
             </section>
         </main>
 
-        <script src="./assets/js/index.js"></script>
+        <!-- Import @ jQuery -->
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"
+        ></script>
+        <!-- Import @ DataTables -->
+        <script src="https://cdn.datatables.net/2.1.3/js/dataTables.js"></script>
+        <!-- Import @ Main -->
+        <script type="module" src="./assets/js/index.js"></script>
     </body>
 </html>
