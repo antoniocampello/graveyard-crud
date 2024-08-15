@@ -1,7 +1,7 @@
 function startDataTable(dataTableId) {
 	return $(dataTableId).DataTable({
 		ajax: {
-			url: 'http://localhost:8080/graveyard-crud/backend/people',
+			url: 'http://localhost:80/graveyard-crud/backend/people',
 			dataSrc: (json) => json.data
 		},
 		columns: [

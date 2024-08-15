@@ -1,6 +1,6 @@
 function createRegister(data) {
 	return $.ajax({
-		url: `http://localhost:8080/graveyard-crud/backend/people`,
+		url: `http://localhost:80/graveyard-crud/backend/people`,
 		method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(data)

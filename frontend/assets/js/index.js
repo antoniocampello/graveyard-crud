@@ -11,6 +11,18 @@ $(() => {
 
 	const [btnAdd, btnEdit, btnDelete] = ['#btn-add', '.btn-edit', '.btn-delete'];
 
+	$(btnAdd).on('click', async () => {
+		const data = showModal();
+
+		if (data) {
+			console.log('dentro do if do inserir');
+			await createRegister(data);
+		}
+		console.log('fora do if do inserir');
+
+		dataTable.ajax.reload(null, false);
+	});
+
 	$(dataTableSelector).on('click', btnEdit, async function () {
 		const id = $(this).data('id');
 
@@ -18,7 +30,9 @@ $(() => {
 
 		const newData = showModal(data);
 
-		await updateRegister(id, newData);
+		if (newData) {
+			await updateRegister(id, newData);
+		}
 
 		dataTable.ajax.reload(null, false);
 	});
@@ -29,14 +43,6 @@ $(() => {
 		if (confirm(`Are you sure? id: [${id}]`)) {
 			await deleteRegisterById(id);
 		}
-
-		dataTable.ajax.reload(null, false);
-	});
-
-	$(btnAdd).on('click', async () => {
-		const data = showModal();
-
-		await createRegister(data);
 
 		dataTable.ajax.reload(null, false);
 	});

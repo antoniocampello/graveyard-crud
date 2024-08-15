@@ -1,6 +1,6 @@
 function fetchSingleRegisterById(id) {
     return $.ajax({
-        url: `http://localhost:8080/graveyard-crud/backend/people/${id}`,
+        url: `http://localhost:80/graveyard-crud/backend/people/${id}`,
         method: 'GET',
         dataType: 'json'
     })

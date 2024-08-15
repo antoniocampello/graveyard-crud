@@ -14,8 +14,11 @@ await updateRegister(meuid, meusdados);
 */
 
 function showModal(data = null) {
-    // TODO: abrir modal
-    // code ...
+    const modalSelector = '#modalAdd';
+    const closeBtn = '#closeBtn';
+    const saveBtn = '#saveBtn';
+
+    $(modalSelector).modal('show');
 
     // TODO: caso tenha colocar os dados passados na modal
     // data = {
@@ -26,16 +29,14 @@ function showModal(data = null) {
     //     "nationality": "omgomg",
     //     "marital_status": "Widowed"
     // }
-    // console.log(data);
+    const name = $('#name').val();
+    console.log(1, name);
 
-    // TODO: fazer os eventos dos botoes de salvar e cancelar, e quando salvar setar o data novamente
-    // code ...
+    // TODO: botao de close -> limpar os campos
 
-    // TODO: fechar modal
-    // code ...
-
-    // TODO: retornar os novos dados
-    return data;
+    $(saveBtn).on('click', () => {
+        return data;
+    });
 }
 
 export default showModal;
