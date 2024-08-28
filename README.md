@@ -45,6 +45,10 @@
 - Priority (**1**)
   - [ ] Create migrations;
   - [ ] Add application screenshots.
+- Priority (**2**)
+  - [ ] Criar uma classe ajax ao inves de varios arquivos?
+  - [ ] Criar o arquivo `.editorconfig`
+  - [ ] Implementar linters e sniffers de codigo (para js e para php)
 
 ## Contributing 🛠️
 
