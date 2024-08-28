@@ -12,24 +12,23 @@ $(() => {
 	const [btnAdd, btnEdit, btnDelete] = ['#btn-add', '.btn-edit', '.btn-delete'];
 
 	$(btnAdd).on('click', async () => {
-		const data = showModal();
+		const data = await showModal();
 
 		if (data) {
-			console.log('dentro do if do inserir');
 			await createRegister(data);
 		}
-		console.log('fora do if do inserir');
 
 		dataTable.ajax.reload(null, false);
 	});
 
-	$(dataTableSelector).on('click', btnEdit, async function () {
+	$(dataTableSelector).on('click', btnEdit, async function () {		
 		const id = $(this).data('id');
 
 		const data = await fetchSingleRegisterById(id);
 
-		const newData = showModal(data);
+		const newData = await showModal(data);
 
+		// TODO: consertar fluxo que ao clicar em cancelar da erro de bad request
 		if (newData) {
 			await updateRegister(id, newData);
 		}

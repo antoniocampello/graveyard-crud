@@ -1,8 +1,8 @@
 function startDataTable(dataTableId) {
 	return $(dataTableId).DataTable({
 		ajax: {
-			url: 'http://localhost:80/graveyard-crud/backend/people',
-			dataSrc: (json) => json.data
+			url: 'http://localhost:8080/graveyard-crud/backend/people',
+			dataSrc: (json) => json.data,
 		},
 		columns: [
 			{ data: 'name' },
@@ -18,9 +18,9 @@ function startDataTable(dataTableId) {
                         <button class="btn-edit" data-id="${row.id}">Edit</button>
                         <button class="btn-delete" data-id="${row.id}">Delete</button>
                     `;
-				}
-			}
-		]
+				},
+			},
+		],
 	});
 }
 

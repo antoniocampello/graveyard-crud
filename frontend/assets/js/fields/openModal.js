@@ -1,42 +1,84 @@
-/**
-let meuid = 1;
-
-let meusdados = {
-    "name": "teste update",
-    "date_of_birth": "1940-07-15",
-    "date_of_death": "2023-08-12",
-    "gender": "Male",
-    "nationality": "American",
-    "marital_status": "Widowed"
-}
-
-await updateRegister(meuid, meusdados);
-*/
-
 function showModal(data = null) {
-    const modalSelector = '#modalAdd';
-    const closeBtn = '#closeBtn';
-    const saveBtn = '#saveBtn';
+	const modalSelector = '#modalAdd';
+	const closeBtn = '#closeBtn';
+	const saveBtn = '#saveBtn';
 
-    $(modalSelector).modal('show');
+	$(modalSelector).modal('show');
 
-    // TODO: caso tenha colocar os dados passados na modal
-    // data = {
-    //     "name": "testando teste borabill",
-    //     "date_of_birth": "1940-07-15",
-    //     "date_of_death": "2023-08-12",
-    //     "gender": "Male",
-    //     "nationality": "omgomg",
-    //     "marital_status": "Widowed"
-    // }
-    const name = $('#name').val();
-    console.log(1, name);
+    if (data) {
+        $('#name').val(data.name);
+        $('#dateBirth').val(data.date_of_birth);
+        $('#dateDeath').val(data.date_of_death);
+        $('input[name="gender"][value="' + data.gender.toLowerCase() + '"]').prop('checked', true);
+        $('#nationality').val(data.nationality);
 
-    // TODO: botao de close -> limpar os campos
+        switch (data.marital_status) {
+            case 'Single':
+                $('#maritalStatus').val('S');
+                break;
+            case 'Married':
+                $('#maritalStatus').val('M');
+                break;
+            case 'Divorced':
+                $('#maritalStatus').val('D');
+                break;
+            case 'Cohabiting':
+                $('#maritalStatus').val('C');
+                break;
+            case 'Widowed':
+                $('#maritalStatus').append('<option value="W" selected>Widowed</option>');
+                break;
+            default:
+                $('#maritalStatus').val('');
+        }
+    }
 
-    $(saveBtn).on('click', () => {
-        return data;
-    });
+	return new Promise((resolve, reject) => {
+		$(saveBtn).off('click').on('click', () => {
+			const name = $('#name').val();
+			const date_of_birth = $('#dateBirth').val();
+			const date_of_death = $('#dateDeath').val();
+			const gender = $('input[name="gender"]:checked').val();
+			const nationality = $('#nationality').val();
+			let marital_status = $('#maritalStatus').val();
+
+			switch (marital_status) {
+				case 'S':
+					marital_status = 'Single';
+					break;
+				case 'M':
+					marital_status = 'Married';
+					break;
+				case 'D':
+					marital_status = 'Divorced';
+					break;
+				case 'C':
+					marital_status = 'Cohabiting';
+					break;
+				case 'W':
+					marital_status = 'Widowed';
+					break;
+				default:
+					marital_status = '';
+			}
+
+			$(modalSelector).modal('hide');
+
+			resolve({
+				name,
+				date_of_birth,
+				date_of_death,
+				gender,
+				nationality,
+				marital_status,
+			});
+		});
+
+		$(closeBtn).off('click').on('click', () => {
+			$(modalSelector).modal('hide');
+			resolve({});
+		});
+	});
 }
 
 export default showModal;
