@@ -38,6 +38,7 @@
 
 - Turn **on** your **apache server with mysql**;
 - Copy this project to **htdocs**;
+- Configure your **config/.env**;
 - Execute queries from **backend/database/graveyard.sql into phpmyadmin** and be happy!
 
 ## Todo List 📌

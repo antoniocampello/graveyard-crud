@@ -1,41 +1,71 @@
-/**
-let meuid = 1;
+import createRegister from '../ajax/store.js';
+import updateRegister from '../ajax/update.js';
 
-let meusdados = {
-    "name": "teste update",
-    "date_of_birth": "1940-07-15",
-    "date_of_death": "2023-08-12",
-    "gender": "Male",
-    "nationality": "American",
-    "marital_status": "Widowed"
+async function modalCreateRegister(data, dataTable) {
+    console.log(data);
+
+    await createRegister(data);
+
+    dataTable.ajax.reload(null, false);
 }
 
-await updateRegister(meuid, meusdados);
-*/
+async function modalUpdateRegister(userId, newData, dataTable) {
+    await updateRegister(userId, newData);
 
-function showModal(data = null) {
-    // TODO: abrir modal
-    // code ...
+    dataTable.ajax.reload(null, false);
+}
 
-    // TODO: caso tenha colocar os dados passados na modal
-    // data = {
-    //     "name": "testando teste borabill",
-    //     "date_of_birth": "1940-07-15",
-    //     "date_of_death": "2023-08-12",
-    //     "gender": "Male",
-    //     "nationality": "omgomg",
-    //     "marital_status": "Widowed"
-    // }
-    // console.log(data);
+function getMaritalStatus(code) {
+    const dict = {
+        'S': 'Single',
+        'M': 'Married',
+        'D': 'Divorced',
+        'C': 'Cohabiting',
+        'W': 'Widowed'
+    };
 
-    // TODO: fazer os eventos dos botoes de salvar e cancelar, e quando salvar setar o data novamente
-    // code ...
+    return dict[code];
+}
 
-    // TODO: fechar modal
-    // code ...
+function showModal(dataTable, userId = null, data = null, action = null) {
+    $('#modalAdd').modal('show');
 
-    // TODO: retornar os novos dados
-    return data;
+    if (data) {
+        $('#name').val(data.name || '');
+        $('#dateBirth').val(data.date_of_birth || '');
+        $('#dateDeath').val(data.date_of_death || '');
+        $('#nationality').val(data.nationality || '');
+        $('#maritalStatus').val(data.marital_status[0] || '');
+
+        if (data.gender) {
+            $(`#gender-field input[value="${data.gender}"]`).prop('checked', true);
+        }
+    }
+
+    $('#btnSave').on('click', () => {
+        const newData = {
+            name: $('#name').val(),
+            date_of_birth: $('#dateBirth').val(),
+            date_of_death: $('#dateDeath').val(),
+            gender: $('input[name="gender"]:checked').val(),
+            nationality: $('#nationality').val(),
+            marital_status: getMaritalStatus($('#maritalStatus').val()),
+        };
+
+        $('#modalAdd').modal('hide');
+
+        if (action === 'create') {
+            modalCreateRegister(newData, dataTable);
+        }
+
+        if (action === 'update') {
+            modalUpdateRegister(userId, newData, dataTable);
+        }
+    });
+
+    $('#closeModal').on('click', () => {
+        $('#modalAdd').modal('hide');
+    });
 }
 
 export default showModal;

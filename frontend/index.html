@@ -24,7 +24,7 @@
             </section>
 
             <section class="search">
-                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modalAdd">Add record</button>
+                <button type="button" class="btn btn-secondary" id="openModal">Add record</button>
 
                 <!-- Modal -->
 
@@ -57,15 +57,15 @@
                         
 
                             <div class="field">
-                                <label for="male">Gender: </label>
-                                <div class="gender-field">
+                                <label for="gender-field">Gender: </label>
+                                <div class="gender-field" id="gender-field">
                                     <div>
-                                        <label for="male">Male:</label>
-                                        <input type="radio" name="gender" id="male" value="male">
+                                        <label for="Male">Male:</label>
+                                        <input type="radio" name="gender" id="Male" value="Male">
                                     </div>
                                     <div>
-                                        <label for="female">Female:</label>
-                                        <input type="radio" name="gender" id="female" value="female">
+                                        <label for="Female">Female:</label>
+                                        <input type="radio" name="gender" id="Female" value="Female">
                                     </div>
                                 </div>
                             </div>
@@ -82,11 +82,13 @@
                                     <option value="M">Married</option>
                                     <option value="D">Divorced</option>
                                     <option value="C">Cohabiting</option>
+                                    <option value="W">Widowed</option>
                                 </select>
                             </div>
+
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-secondary">Record</button>
+                                <button type="button" class="btn btn-danger" id="closeModal" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-secondary" id="btnSave">Record</button>
                             </div>
                         </form>
                     </div>
@@ -123,11 +125,15 @@
             </section>
         </main>
 
-        <!-- Import @ jQuery -->
+        <!-- Import jQuery-->
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-        <!-- Import @ DataTables -->
+        <!-- Import Bootstrap 5 CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Import Bootstrap 5 JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Import DataTables -->
         <script src="https://cdn.datatables.net/2.1.3/js/dataTables.js"></script>
-        <!-- Import @ Main -->
+        <!-- Import Main Script -->
         <script type="module" src="./assets/js/index.js"></script>
     </body>
 </html>
